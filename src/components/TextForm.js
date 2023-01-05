@@ -29,17 +29,17 @@ const TextForm =(props) =>{
 
     const[text, setText]=useState(' ');
 
-    const[wordsLength,setWordLength]=useState(0);
+    // const[wordsLength,setWordLength]=useState(0);
 
-    const WordCount=(words)=>{
-         words=text.trim();
+    // const WordCount=(words)=>{
+    //      words=text.trim();
 
-        if(words.length===0){
-             setWordLength(0);
-        }else{
-            setWordLength(words.split(" ").length);
-        }
-    }
+    //     if(words.length===0){
+    //          setWordLength(0);
+    //     }else{
+    //         setWordLength(words.split(" ").length);
+    //     }
+    // }
 
     return(
         <>
@@ -50,16 +50,16 @@ const TextForm =(props) =>{
             <textarea className="form-control" value={text} onChange={handleUpOnChange} style={{backgroundColor: props.md==='light'?'grey':'white',color: props.md==='dark'?'black':'white'}}  id="myBox" rows="8"></textarea> 
         </div>
         <button className="btn btn-primary" onClick={handleUpClick}>Convert to uppercase</button>
-        <button className="btn btn-primary mx-2" onClick={handleLowClick} >Convert to lowercase</button>
-        <button className="btn btn-primary mx-2" onClick={handleClClick} >Clear text</button>
+        <button className="btn btn-primary mx-2 my-1" onClick={handleLowClick} >Convert to lowercase</button>
+        <button className="btn btn-primary mx-2 my-1" onClick={handleClClick} >Clear text</button>
 
         </div>
         <div className="container" style={{color: props.md==='dark'?'black':'white'}}>
             <h2> Number of words and characters</h2>
             
-            <p> {text.split(" ").length} words and {text.length} charcaters</p>
+            <p> {text.split(" ").filter((element)=>{return element.length!==0}).length} words and {text.trim().length} charcaters</p>
             <h2>Preview</h2>
-            <p>{ text.length >0 ? text :'Enter some text to preview it here!'}</p>
+            <p>{ text.trim().length >0 ? text :'Enter some text to preview it here!'}</p>
         </div>
 
         </>
