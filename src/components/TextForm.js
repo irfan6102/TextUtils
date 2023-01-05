@@ -49,9 +49,9 @@ const TextForm =(props) =>{
             <label htmlFor="myBox"></label>
             <textarea className="form-control" value={text} onChange={handleUpOnChange} style={{backgroundColor: props.md==='light'?'grey':'white',color: props.md==='dark'?'black':'white'}}  id="myBox" rows="8"></textarea> 
         </div>
-        <button className="btn btn-primary" onClick={handleUpClick}>Convert to uppercase</button>
-        <button className="btn btn-primary mx-2 my-1" onClick={handleLowClick} >Convert to lowercase</button>
-        <button className="btn btn-primary mx-2 my-1" onClick={handleClClick} >Clear text</button>
+        <button className="btn btn-primary" disabled={text.trim().length===0} onClick={handleUpClick}>Convert to uppercase</button>
+        <button className="btn btn-primary mx-2 my-1"  disabled={text.trim().length===0} onClick={handleLowClick} >Convert to lowercase</button>
+        <button className="btn btn-primary mx-2 my-1" disabled={text.trim().length===0} onClick={handleClClick} >Clear text</button>
 
         </div>
         <div className="container" style={{color: props.md==='dark'?'black':'white'}}>
